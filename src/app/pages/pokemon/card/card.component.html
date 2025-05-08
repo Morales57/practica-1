@@ -1,0 +1,46 @@
+<div class="row mb-3 g-3">
+  <ng-container *ngIf="pokemonsAll && pokemonsAll.results && pokemonsAll.results.length > 0; else noPokemons">
+    <div class="col-3" *ngFor="let pokemon of pokemonsAll.results">
+      
+      
+      <div 
+        *ngIf="pokemon.data"
+        class="card fixed-card"
+        [ngStyle]="{
+          'background-color': getColorForType(pokemon.data.types[0].type.name),
+          'border': '2px solid ' + getBorderColorForType(pokemon.data.types[0].type.name),
+          
+        }"
+      >
+        <img 
+          [src]="pokemon.data?.sprites?.versions?.['generation-v']?.['black-white']?.animated?.front_default"
+          class="card-img-top fixed-img" 
+          [alt]="pokemon.name"
+          (load)="imageloaded = true"
+        >
+
+        <div class="card-body fixed-body">
+          <h5 class="card-title">{{pokemon.name}}</h5>
+          <p class="card-text">Experiencia: {{pokemon.data?.base_experience}}</p>
+          <li 
+            class="btn btn-outline-primary" 
+            (click)="openModal(pokemon.data)"
+          >
+            Más información
+          </li>
+        </div>
+      </div>
+
+    </div>
+  </ng-container>
+
+  <ng-template #noPokemons>
+    <div class="col-12">
+      <div class="alert alert-warning" role="alert">
+        No pokemons found
+      </div>
+    </div>
+  </ng-template>
+</div>
+
+<pokemon-modal />

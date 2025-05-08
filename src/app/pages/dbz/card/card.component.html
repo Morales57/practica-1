@@ -1,0 +1,41 @@
+<div class="row mb-3 g-3">
+  <ng-container *ngIf="dbzAll && dbzAll.items && dbzAll.items.length > 0; else noCharacters">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let dbz of dbzAll.items">
+      <div class="card dbz-card h-100 position-relative"
+           [ngClass]="[getRaceClass(dbz.race), getKiClass(dbz.ki)]">
+
+        <!-- Badge de raza -->
+        <div class="badge-raza">{{ dbz.race || 'Unknown' }}</div>
+
+        <!-- Imagen centrada y ajustada -->
+        <div class="text-center">
+          <img [src]="dbz.image || 'assets/default-dbz.png'" 
+               class="card-img-top dbz-img mx-auto d-block"
+               alt="{{ dbz.name }}">
+        </div>
+
+        <div class="card-body p-2">
+          <h5 class="card-title mb-1 text-center">{{ dbz.name }}</h5>
+          <p class="card-text text-center mb-1">Ki: {{ dbz.ki }}</p>
+          <p class="card-text text-center mb-1">Ki Máximo: {{ dbz.maxKi }}</p>
+          <p class="card-text text-center mb-1">Género: {{ dbz.gender || 'Sin info' }}</p>
+        </div>
+
+        <div class="card-footer text-center">
+          <button class="btn btn-primary btn-sm" (click)="selectCharacter(dbz)">
+            Ver detalles
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #noCharacters>
+    <div class="col-12">
+      <div class="alert alert-warning text-center" role="alert">
+        No se encontraron personajes de Dragon Ball
+      </div>
+    </div>
+  </ng-template>
+</div>

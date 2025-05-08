@@ -1,0 +1,164 @@
+.dbz-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(255, 87, 51, 0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+  background: linear-gradient(135deg, #fdb813, #ff5733);
+  animation: fadeIn 0.5s ease-in;
+}
+
+/* Fondos por raza */
+.saiyan {
+  background: linear-gradient(135deg, #ff4e50, #f9d423);
+  color: #fff;
+}
+
+.namekian {
+  background: linear-gradient(135deg, #04c66e, #078550);
+  color: #fff;
+}
+
+.human {
+  background: linear-gradient(135deg, #e0eafc, #cfdef3);
+  color: #222;
+}
+
+.unknown {
+  background: linear-gradient(135deg, #bdc3c7, #2c3e50);
+  color: #fff;
+}
+
+/* Hover card */
+.dbz-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px 6px rgba(255, 255, 0, 0.5);
+}
+
+/* Imagen */
+.dbz-img {
+  max-width: 150px;
+  max-height: 200px;
+  object-fit: contain;
+  border-bottom: 2px solid #fff;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+  margin: 0 auto;
+  display: block;
+  animation: flotar 3s infinite ease-in-out;
+  transition: transform 0.3s;
+}
+
+.dbz-img:hover {
+  transform: scale(1.05);
+}
+
+/* Títulos */
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px #000;
+}
+
+/* Textos */
+.card-text {
+  font-size: 0.95rem;
+  color: #020202;
+}
+
+/* Botón */
+.btn-warning {
+  background-color: #ffca28;
+  border-color: #ffca28;
+  color: #333;
+  border-radius: 20px;
+  padding: 0.4rem 1.2rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  transition: background 0.3s;
+}
+
+.btn-warning:hover {
+  background-color: #ffc107;
+  border-color: #ffc107;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes auraPulse {
+  from {
+    box-shadow: 0 0 30px rgba(255, 255, 0, 0.9);
+  }
+  to {
+    box-shadow: 0 0 60px rgba(255, 255, 0, 1);
+  }
+}
+
+/* Badge de raza */
+.badge-raza {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #ffc107;
+  color: #222;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* Glow según ki */
+.low-ki {
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.medium-ki {
+  box-shadow: 0 0 16px rgba(255, 255, 102, 0.6);
+}
+
+.high-ki {
+  box-shadow: 0 0 30px rgba(255, 255, 0, 0.9);
+  animation: auraPulse 1.5s infinite alternate;
+}
+
+/* Card extra */
+card {
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+/* Destello suave al hacer hover */
+.dbz-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.2) 100%);
+  transform: skewX(-25deg);
+  pointer-events: none;
+  transition: all 0.75s ease;
+  opacity: 0;
+}
+
+.dbz-card:hover::after {
+  left: 125%;
+  opacity: 1;
+  transition: all 0.75s ease;
+}

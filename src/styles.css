@@ -1,0 +1,23 @@
+body {
+    background-image: url('https://es.textstudio.com/output/background/0/1/5/1/1510_fd019.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+ 
+
+  .fondo-dbz {
+    background: url('https://es.textstudio.com/output/background/2/0/6/1/1602_34343.webp') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+  }
+
+  .fondo-pokemon {
+    background: url('https://es.textstudio.com/output/background/2/5/2/1/1252_a329e.svg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+  }

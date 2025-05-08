@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="row justify-content-center">
+    <div class="col-auto text-center">
+      <img src="assets/api-3-5-2025.gif" alt="Dragon Ball" class="img-fluid" style="max-width: 300px;" />
+    </div>
+  </div>
+ </div>
+ 
+ <div class="row">
+   <dbz-search (eventSearch)="searchPersonaje($event)" />
+ </div>
+ 
+ <dbz-paginacion (eventNewdbz)="setNewdb($event)" />
+ <dbz-card [dbzAll]="DB" (onCharacterSelected)="onCharacterSelected($event)" />
+ <dbz-paginacion (eventNewdbz)="setNewdb($event)" />
+ <dbz-modal />

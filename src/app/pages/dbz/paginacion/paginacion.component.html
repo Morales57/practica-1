@@ -1,0 +1,16 @@
+<div class="row mt-2 mb-2"> <div class="col-12"> <nav aria-label="Paginación de personajes"> <ul class="pagination justify-content-start"> <li class="page-item" [ngClass]="{'disabled': isFirstPage || loading}"> <button class="page-link" (click)="previousPage()" [disabled]="isFirstPage || loading"> Previous </button> </li>
+  
+      <li class="page-item" [ngClass]="{'disabled': isLastPage || loading}">
+        <button class="page-link" (click)="nextPage()" [disabled]="isLastPage || loading">
+          Next
+        </button>
+      </li>
+    </ul>
+  
+    <div class="text-center mt-2" *ngIf="loading">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Cargando...</span>
+      </div>
+    </div>
+  </nav>
+  </div> </div>
